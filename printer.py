@@ -1,4 +1,4 @@
-import Queue
+import Queue, sys
 def Print(text):
 	if str(text).startswith("[E]"):
 		text = text.replace("[E]", "\033[91m[Error]\033[0m")
@@ -11,13 +11,12 @@ def Print(text):
 def printerLoop(printQueue, ircConnections):
 	while 1:
 		line = printQueue.get(True)
-		if str(line) == "[Q]":
-			break
 		if str(line) == "[U]":
 			pass
-		if len(ircConnections) == 0:
+		elif str(line) == "[Q]":
 			break
 		else:
 			Print(line)
-		
+		if len(ircConnections.keys()) == 0:
+			break
 colorCodes = {"black": "\033[90m", "red": "\033[91m", "green": "\033[92m", "yellow": "\033[93m", "blue": "\033[94m", "magenta": "\033[95m", "cyan": "\033[96m", "white": "\033[97m", "reset": "\033[0m"}
