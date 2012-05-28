@@ -1,2 +1,2 @@
-irc.cryto.net:+6697 ; Nij derpaderp #derpa
-irc.chat4all.org:+6697 ; Nij derpaderp #derpa
+irc.cryto.net:+6697 ; Nij [password] #derpa
+irc.chat4all.org:+6697 ; Nij [password] #derpa
