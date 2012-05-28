@@ -6,14 +6,14 @@ def Print(text):
 		text = text.replace("[I]", "\033[92m[Info]\033[0m")
 	if str(text).startswith("[*]"):
 		text = text.replace("[*]", "\033[94m")
+	if str(text) == "[U]":
+		return
 	print text, "\033[0m"
 
 def printerLoop(printQueue, ircConnections):
 	while 1:
 		line = printQueue.get(True)
-		if str(line) == "[U]":
-			pass
-		elif str(line) == "[Q]":
+		if str(line) == "[Q]":
 			break
 		else:
 			Print(line)

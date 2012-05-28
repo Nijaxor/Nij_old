@@ -61,7 +61,7 @@ def Connection(**ircStuff):
 	def writer(text):
 		text = text.replace("\r", "").replace("\n", "").replace("\r\n", "")
 		ircSocket.send(text + "\r\n")
-		ircStuff["printQueue"].put(printer.colorCodes["blue"] + "-> " + printer.colorCodes["reset"] + conInfo[0] + printer.colorCodes["blue"] + " -> " + printer.colorCodes["reset"] + text)
+		#ircStuff["printQueue"].put(printer.colorCodes["blue"] + "-> " + printer.colorCodes["reset"] + conInfo[0] + printer.colorCodes["blue"] + " -> " + printer.colorCodes["reset"] + text)
 	ircStuff["writer"] = writer
 	writer("USER " + ircStuff["connectionInfo"]["conLine"].split()[2] + " 0 0 :" + ircStuff["version"])
 	writer("NICK " + ircStuff["connectionInfo"]["conLine"].split()[2])
@@ -74,5 +74,5 @@ def Connection(**ircStuff):
 		else:
 			ircStuff["printQueue"].put("[E] Disconnnected from '" + conInfo[0] + "'.")
 			del ircStuff["ircConnections"][conInfo[0]]
-			ircStuff["printQueue"].put("U")
+			ircStuff["printQueue"].put("[U]")
 			return
